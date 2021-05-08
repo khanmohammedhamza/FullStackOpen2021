@@ -1,27 +1,39 @@
 import React from 'react'
 
 const Header= (props) => {
+  console.log(props)
   return(
 <h1> 
         {props.course}
       </h1>
   )
 }
-
+const Part = (props) =>{
+  return(
+    <>
+     <p>{props.part} {props.exercise}</p>
+    </>
+  )
+}
 const Content= (props) => {
   return(
     <>
-  <p>{props.part1} {props.exercise1}</p>
-  <p>{props.part2} {props.exercise2}</p>
-  <p>{props.part3} {props.exercise3}</p>
+  <Part part = {props.part1} exercise = {props.exercise1} />
+  <Part part = {props.part2} exercise = {props.exercise2} />
+  <Part part = {props.part3} exercise = {props.exercise3} />
   </>
   )
 }
 
 const Total= (props) => {
+ const exercises= props.exercises
+ let sum = 0
+ exercises.forEach(element => {
+   sum += element
+ });
   return(
     <p>
-   number of exercises= {props.exercise1} 
+   number of exercises  {sum} 
    </p>
   )
 }
@@ -39,9 +51,8 @@ const App = () => {
       <Header course={course} />
       <Content part1={part1} exercise1={exercise1} part2={part2} exercise2={exercise2} part3={part3} exercise3={exercise3}/>
     
-      <p>Number of exercises {exercise1 + exercise2 + exercise3}</p>
-     <Total exercise1={exercise1 + exercise2 + exercise3} />
-      
+     {/* <Total exercise1={exercise1 + exercise2 + exercise3} /> */}
+     <Total exercises={[exercise1,  exercise2 , exercise3]} />
       
     </div>
   )
