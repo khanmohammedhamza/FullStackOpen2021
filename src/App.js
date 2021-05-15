@@ -1,4 +1,4 @@
-import React from 'react'
+iimport React from 'react'
 const App = () => {
   const course  = 'Half Stack appliation development'
   const part1 = 'fundamentals of React'
@@ -9,7 +9,7 @@ const App = () => {
   const exercise3= 14
   return(
     <div>
-      <h1>
+      <h1>got 
         {course}
       </h1>
       <p>
@@ -28,3 +28,5 @@ const App = () => {
   )
 }
 export default App
+
+
