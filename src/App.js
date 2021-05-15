@@ -1,4 +1,18 @@
 import React from 'react'
+const Header= (props) => {
+    return(
+    <h1> 
+        {props.course}
+      </h1>
+  )
+}
+
+
+const Content= (props) => {
+  return(
+ <p>{props.parts}</p>
+  )
+}
 
 
 const App = () => {
@@ -19,15 +33,11 @@ const App = () => {
   }
 ]
 
-  return (
-    <div>
-<p>{course}</p>
-<p>
-parts.forEach((name,exercises)=> {
-  
-});
-</p>
 
+ return (
+    <div>
+      <Header course={course} />
+      <Content parts={parts} />
     
     </div>
   )
