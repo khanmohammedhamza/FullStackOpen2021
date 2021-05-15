@@ -9,7 +9,7 @@ const App = () => {
   const exercise3= 14
   return(
     <div>
-      <h1>got 
+      <h1>
         {course}
       </h1>
       <p>
