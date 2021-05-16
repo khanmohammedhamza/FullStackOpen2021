@@ -14,6 +14,14 @@ const Parts= (props) =>
     </div>
   )
 } 
+const Total= (props) =>
+{
+  return(
+    <div>
+      {props.parts.map(x =><Parts exercises={x.exercises}/>  )}
+    </div>
+  )
+}
 const Content= (props) =>
 {
   console.log( props.parts)
@@ -23,7 +31,8 @@ const Content= (props) =>
   {props.parts.map(value => <Parts name ={ value.name}  exercises ={value.exercises}key = {value.name} /> )}
    </div>
  )
-}
+ }
+ 
 const App = () => {
   const course = 'Half Stack application development'
   
@@ -47,6 +56,7 @@ return (
   <div>
     <Header course={course} />
     <Content parts ={parts}/>
+    <Total parts ={parts}/>
     
    
   </div>
