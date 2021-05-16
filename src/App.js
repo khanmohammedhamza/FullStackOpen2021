@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useDebugValue } from 'react'
 const Header= (props) => {
     return(
     <h1> 
@@ -6,41 +6,51 @@ const Header= (props) => {
       </h1>
   )
 }
-
-
-const Content= (props) => {
+const Parts= (props) =>
+{
   return(
- <p>{props.parts}</p>
-  )
-}
-
-
-const App = () => {
-  const course = 'Half Stack application development'
-  console.log(course)
-  const parts= [
-  {
-    name: 'Fundamentals of React',
-    exercises: 10
-  },
-  {
-    name: 'Using props to pass data',
-    exercises: 7
-  },
-  {
-    name: 'State of a component',
-    exercises: 14
-  }
-]
-
-
- return (
-    <div>
-      <Header course={course} />
-      <Content parts={parts} />
-    
+    <div> 
+    {props.name} {props.exercises}
     </div>
   )
+} 
+const Content= (props) =>
+{
+  console.log( props.parts)
+ return(
+
+   <div>
+  {props.parts.map(value => <Parts name ={ value.name}  exercises ={value.exercises}key = {value.name} /> )}
+   </div>
+ )
 }
+const App = () => {
+  const course = 'Half Stack application development'
+  
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
+
+
+return (
+  <div>
+    <Header course={course} />
+    <Content parts ={parts}/>
+    
+   
+  </div>
+)
+} 
 export default App
 
